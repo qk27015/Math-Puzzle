@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Math Puzzle</title>
+</head>
+
+<body>
+
+  <div id="answer">
+  </div>
+
+  <script>
+
+    var op = ["*", ""];
+
+    for(var i = 1000; i < 100000; i++){
+      var s = String(i);
+      for(var j = 0; j < op.length; j++){
+        for(var k = 0; k < op.length; k++){
+          for(var l = 0; l < op.length; l++){
+            var val = s.charAt(3) + op[j] + s.charAt(2) + op[k]
+                        + s.charAt(1) + op[l] + s.charAt(0);
+            if (val.length > 4){
+              if(i == eval(val)){
+                document.getElementById('answer').innerHTML = val + " = " + eval(val);
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
